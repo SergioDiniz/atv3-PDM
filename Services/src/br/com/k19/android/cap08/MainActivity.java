@@ -15,13 +15,9 @@ import android.widget.Toast;
 public class MainActivity extends Activity {
 
 	private Handler handler = new Handler() {
-
 		public void handleMessage(Message message) {
-
 			Object path = message.obj;
-
 			if (message.arg1 == RESULT_OK && path != null) {
-
 				Toast.makeText(MainActivity.this, getString(R.string.download_success, path.toString()),
 				Toast.LENGTH_LONG).show();
 			} else {
@@ -30,17 +26,17 @@ public class MainActivity extends Activity {
 		};
 	};
 
+
+
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-
 		Button startButton = (Button) findViewById(R.id.start_button);
 		startButton.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-
 				Intent intent = new Intent(MainActivity.this, DownloadService.class);
 				Messenger messenger = new Messenger(handler);
 				intent.putExtra("messenger", messenger);
@@ -48,6 +44,7 @@ public class MainActivity extends Activity {
 				intent.putExtra("urlPath", "http://k19.com.br/cursos");
 				startService(intent);
 			}
+			
 		});
 	}
 }

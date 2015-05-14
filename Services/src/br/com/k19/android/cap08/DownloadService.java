@@ -16,6 +16,8 @@ import android.os.Message;
 import android.os.Messenger;
 import android.util.Log;
 
+
+
 public class DownloadService extends IntentService {
 
 	private int result = Activity.RESULT_CANCELED;
@@ -85,6 +87,8 @@ public class DownloadService extends IntentService {
 				Log.e("DownloadService", "Erro ao enviar mensagem", e1);
 
 			}
+			
 		}
+
 	}
 }
