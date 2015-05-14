@@ -27,7 +27,7 @@ public class DownloadService extends IntentService {
 	@Override
 	protected void onHandleIntent(Intent intent) {
 		Uri data = intent.getData();
-		String urlPath = intent.getStringExtra(" urlPath ");
+		String urlPath = intent.getStringExtra("urlPath");
 		String fileName = data.getPath();
 		File output = new File(Environment.getExternalStorageDirectory(),
 		fileName);
@@ -75,14 +75,14 @@ public class DownloadService extends IntentService {
 		Bundle extras = intent.getExtras();
 
 		if (extras != null) {
-			Messenger messenger = (Messenger) extras.get(" messenger ");
+			Messenger messenger = (Messenger) extras.get("messenger");
 			Message msg = Message.obtain();
 			msg.arg1 = result;
 			msg.obj = output.getAbsolutePath();
 			try {
 				messenger.send(msg);
 			} catch (android.os.RemoteException e1) {
-				Log.e(" DownloadService ", " Erro ao enviar mensagem ", e1);
+				Log.e("DownloadService", "Erro ao enviar mensagem", e1);
 
 			}
 		}

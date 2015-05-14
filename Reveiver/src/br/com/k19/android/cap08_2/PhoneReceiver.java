@@ -13,7 +13,6 @@ public class PhoneReceiver extends BroadcastReceiver {
 
 	@Override
 	public void onReceive(Context context, Intent intent) {
-
 		Bundle extras = intent.getExtras();
 		if (extras != null) {
 			String state = extras.getString(TelephonyManager.EXTRA_STATE);

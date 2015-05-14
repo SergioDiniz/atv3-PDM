@@ -44,7 +44,7 @@ public class MainActivity extends Activity {
 				Intent intent = new Intent(MainActivity.this, DownloadService.class);
 				Messenger messenger = new Messenger(handler);
 				intent.putExtra("messenger", messenger);
-				intent.setData(Uri.parse(" cursos.html "));
+				intent.setData(Uri.parse("cursos.html"));
 				intent.putExtra("urlPath", "http://k19.com.br/cursos");
 				startService(intent);
 			}
